@@ -7,7 +7,8 @@ pipeline
 		{
 			steps
 			{
-				git 'https://github.com/gnanendra1535/igp.git'
+			    git branch: 'main',
+				    url: 'https://github.com/gnanendra1535/igp.git'
 			}
 		}
 		
