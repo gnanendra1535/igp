@@ -71,5 +71,14 @@ pipeline
 			}
 		}
 
+		stage('Deploy to k8s cluster ')
+		{
+			steps
+			{
+				sh 'kubectl create -f deploy.yaml'
+			        sh  'kubectl create -f svc.yaml'
+			}
+		}
+
    }
 }
