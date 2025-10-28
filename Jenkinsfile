@@ -35,13 +35,13 @@ pipeline
 			}
 		}
 
-		stage('install docker using ansible')
-		{
-			steps
-			{
-				sh 'ansible-playbook docker.yaml'
-			}
-		}
+		// stage('install docker using ansible')
+		// {
+		// 	steps
+		// 	{
+		// 		sh 'ansible-playbook docker.yaml'
+		// 	}
+		// }
 
 		stage('Build Docker Image')
 		{
