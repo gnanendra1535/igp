@@ -1,0 +1,11 @@
+- name: install docker on the server 
+  tasks:
+  - name: install
+    package:
+      name: docker.io
+      state: present
+  - name: start docker
+    service:
+      name: docker
+      state: started
+      enabled: true
