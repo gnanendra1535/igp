@@ -48,7 +48,7 @@ pipeline
 		{
 			steps
 			{
-					sh 'docker build -t gnanendrame/abc_tech:$BUILD_NUMBER .'
+					sh 'docker build -t gnanim07/abc_tech:$BUILD_NUMBER .'
 			}
 		}
 
@@ -58,7 +58,7 @@ pipeline
 			{   
 			    withDockerRegistry([ credentialsId: "dockerhub", url: "" ])
 			    {
-			       sh 'docker push gnanendrame/abc_tech:$BUILD_NUMBER'
+			       sh 'docker push gnanim07/abc_tech:$BUILD_NUMBER'
 			    }
 			}
 		}
@@ -67,7 +67,7 @@ pipeline
 		{
 			steps
 			{
-				sh 'docker run -d -P gnanendrame/abc_tech:$BUILD_NUMBER'
+				sh 'docker run -d -P gnanim07/abc_tech:$BUILD_NUMBER'
 			}
 		}
 
