@@ -3,11 +3,12 @@ pipeline
 	agent any
 	stages
 	{
-		stage('Code Checkout')
+			stage('Code Checkout')
 		{
 			steps
 			{
-				git 'https://github.com/gnanendra1535/igp.git'
+				git branch: 'main',
+				    url: 'https://github.com/gnanendra1535/igp.git'
 			}
 		}
 		
