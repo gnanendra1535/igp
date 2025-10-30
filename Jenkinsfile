@@ -56,7 +56,7 @@ pipeline
 		{ 
 			steps
 			{   
-			    withDockerRegistry([ credentialsId: "dockerhub", url: "" ])
+			    withDockerRegistry([ credentialsId: "gnani-dockerhub", url: "" ])
 			    {
 			       sh 'docker push gnanim07/abc_tech:$BUILD_NUMBER'
 			    }
