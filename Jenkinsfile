@@ -75,10 +75,16 @@ pipeline
 		{
 			steps
 			{
-				sh 'kubectl create -f deploy.yaml'
-			        sh  'kubectl create -f svc.yaml'
+			      withCredentials([file(credentialsId: 'eks-kubeconfig', variable: 'KUBECONFIG_FILE')]) {
+          sh '''
+            export KUBECONFIG=$KUBECONFIG_FILE
+            kubectl version --client
+            kubectl apply -f deploy.yaml --validate=false
+            kubectl apply -f svc.yaml --validate=false
+          '''
+        }
+			
 			}
 		}
-
    }
 }
