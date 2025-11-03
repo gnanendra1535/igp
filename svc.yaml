@@ -3,7 +3,7 @@ kind: Service
 metadata: 
  name: abc-nodeport-svc
 spec:
- type: NodePort
+ type: LoadBalancer
  selector:
   app: abc_deploy  
   ports:
