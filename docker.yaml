@@ -1,4 +1,6 @@
-- name: install docker on the server 
+- name: install docker on the server
+  hosts: all
+  become: yes
   tasks:
   - name: install
     package:
