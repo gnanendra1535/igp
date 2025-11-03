@@ -3,9 +3,10 @@ kind: Service
 metadata: 
  name: abc-nodeport-svc
 spec:
- type: LoadBalancer
+ type: NodePort
  selector:
   app: abc_deploy  
- ports:
- - targetPort: 8080  
-   port: 80
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
