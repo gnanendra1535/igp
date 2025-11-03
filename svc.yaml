@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
-metadata: 
- name: abc-nodeport-svc
+metadata:
+  name: abc-tech-lb
+  namespace: default
 spec:
- type: LoadBalancer
- selector:
-  app: abc_deploy  
+  type: LoadBalancer
+  selector:
+    app: abc_deploy       
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
+    - name: http
+      port: 80                  
+      targetPort: 8080          
+      protocol: TCP
