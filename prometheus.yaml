@@ -1,0 +1,26 @@
+# prometheus.yml - static scrape config for external ELB targets (abc-tech)
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  scrape_timeout: 10s
+
+rule_files:
+ 
+
+scrape_configs:
+ 
+  - job_name: 'prometheus-self'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'abc-tech-elb'
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - 'aa9aa923b49814505a86dd96347dcc9f-1608517973.us-east-2.elb.amazonaws.com:80'
+          - 'k8s-default-abctechl-d950bc524d-fba6e65daf77557e.elb.us-east-2.amazonaws.com:80'
+        labels:
+          job: abc-tech
+          env: prod
+          source: elb
